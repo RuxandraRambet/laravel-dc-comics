@@ -31,3 +31,4 @@ class ComicsTableSeeder extends Seeder
        }
     }
 }
+ 
