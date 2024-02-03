@@ -12,7 +12,7 @@
     <h1>Comics</h1>
     <ul>
         @foreach ($comics as $comic)
-            <li>{{ $comic->title}}</li>
+            <li>{{ $comic->title}} - <a href="{{ route('comics.show', $comic->id) }}" alt="Comic">View Details</a></li>
         @endforeach
     </ul>
 </body>
