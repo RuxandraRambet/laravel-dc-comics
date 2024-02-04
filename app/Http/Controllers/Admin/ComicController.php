@@ -14,6 +14,7 @@ class ComicController extends Controller
     public function index()
     {
         $comics = Comic::all();
+
         // dd($comics);
         return view('comics.index', compact('comics'));
     }
@@ -59,24 +60,31 @@ class ComicController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Comic $comic)
     {
-        //
+        // dd($comic);
+        return view('comics.edit', compact('comic'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Comic $comic)
     {
-        //
+        $data = $request->all();
+        $comic->update($data);
+        // dd($data, $comic);
+
+        return redirect()->route('comics.show', $comic->id );
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Comic $comic)
     {
-        //
+        $comic->delete();
+
+        return redirect()->route('comics.index');
     }
 }
