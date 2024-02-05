@@ -13,7 +13,6 @@
     <main>
         @yield('main')
     </main>
-
 </body>
 
 </html>
